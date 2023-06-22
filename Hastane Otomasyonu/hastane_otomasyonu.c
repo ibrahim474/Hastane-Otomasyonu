@@ -8,7 +8,7 @@
 	#include <windows.h>
 
 	
-	struct hasta {    // hasta  yapısı (struct) tanımlaması
+	struct hasta {    // hasta  yapÄ±sÄ± (struct) tanÄ±mlamasÄ±
 	
 		char ad[20] ;
 		char soyad[20] ;
@@ -23,7 +23,7 @@
 		
 };
 	
-	struct doktor {    //  doktor  yapısı (struct) tanımlaması
+	struct doktor {    //  doktor  yapÄ±sÄ± (struct) tanÄ±mlamasÄ±
 		char ad[20] ;
 		char soyad[20] ;
 		char sifre [20] ;
@@ -38,22 +38,22 @@ void hastaKayit() {
     system("cls");
     struct hasta h1;
     struct doktor d1;
-    int sonuc = 0; //// Sonuc değişkeni, doktor bulunup bulunmadığını kontrol etmek için kullanılır
+    int sonuc = 0; //// Sonuc deÄŸiÅŸkeni, doktor bulunup bulunmadÄ±ÄŸÄ±nÄ± kontrol etmek iÃ§in kullanÄ±lÄ±r
 
     printf("HASTA KAYIT EKRANI\n");
-    printf("TC        : ");  scanf("%d", &h1.tc); // Kullanıcıdan T.C. numarası alınır ve h1.tc değişkenine atanır
+    printf("TC        : ");  scanf("%d", &h1.tc); // KullanÄ±cÄ±dan T.C. numarasÄ± alÄ±nÄ±r ve h1.tc deÄŸiÅŸkenine atanÄ±r
     printf("AD        : "); scanf(" %[^\n]s", h1.ad);
     printf("SOYAD     : "); scanf(" %[^\n]s", h1.soyad);
     printf("GSM       : "); scanf("%d", &h1.tel);
       char cevap;
-        printf("Randevu ALMAK İSTER MİSİNİZ? (E/H): ");
+        printf("Randevu ALMAK Ä°STER MÄ°SÄ°NÄ°Z? (E/H): ");
         
-        scanf(" %c", &cevap); //// Kullanıcının cevabı alınır
+        scanf(" %c", &cevap); //// KullanÄ±cÄ±nÄ±n cevabÄ± alÄ±nÄ±r
         if(cevap == 'E' || cevap == 'e') {
            printf("Randevu tarihi : "); scanf(" %[^\n]s", h1.rtarih);
 
 printf("Saati : 09.00, 10.00, 11.00, 12.00, 13.00, 14.00, 15.00, 16.00, 17.00\n"); printf("Saati: ");  scanf(" %[^\n]s", &h1.rsaat);
-printf("Klinikler : 1-KBB, 2-Fizik Tedavi , 3-cocuk hastaliklari, 4-noroloji, 5-dahiliye, 6-Kadin hastaliklari , 7-Dis Hastalikları, 8- ortopedi, 9- Genel Cerrahi, 10- goz hastaliklari \n") ;
+printf("Klinikler : 1-KBB, 2-Fizik Tedavi , 3-cocuk hastaliklari, 4-noroloji, 5-dahiliye, 6-Kadin hastaliklari , 7-Dis HastaliklarÄ±, 8- ortopedi, 9- Genel Cerrahi, 10- goz hastaliklari \n") ;
                 printf("KLINIK NO : "); scanf("%d", &h1.klinikNo);
                 FILE *ptr = fopen("doktor.dat", "r+b");
                 FILE *ptr2 = fopen("doktorlaryedek.dat", "r+b");
@@ -70,12 +70,12 @@ printf("Klinikler : 1-KBB, 2-Fizik Tedavi , 3-cocuk hastaliklari, 4-noroloji, 5-
                 if(sonuc == 0) {
                     printf("Bu bolumun doktoru yok. Bu klinik icin Doktor Kayit islemi Oldugu zaman kayit islemi gerceklesecektir. ilginiz icin Tesekkurler. !!!\n");
                 } else {
-                    printf("DOKTOR NO : "); scanf("%d", &h1.doktorNo); //scanf" fonksiyonu, kullanıcının girdiği tamsayıyı okur ve "%d" biçimlendirme karakteri, scanf'in okuyacağı verinin tamsayı olduğunu belirtir
+                    printf("DOKTOR NO : "); scanf("%d", &h1.doktorNo); //scanf" fonksiyonu, kullanÄ±cÄ±nÄ±n girdiÄŸi tamsayÄ±yÄ± okur ve "%d" biÃ§imlendirme karakteri, scanf'in okuyacaÄŸÄ± verinin tamsayÄ± olduÄŸunu belirtir
                     h1.durum = 0;
                     FILE *hPtr = fopen("hasta.dat", "a+b");
                     FILE *hPtr2 = fopen("yedek.dat", "wb");
                     fwrite(&h1, sizeof(struct hasta), 1, hPtr);
-                   printf("RANDEVUNUZ ONAYLANDI.  GECMİS OLSUN!");
+                   printf("RANDEVUNUZ ONAYLANDI.  GECMÄ°S OLSUN!");
                     fclose(hPtr);
                 }
                 
@@ -83,12 +83,12 @@ printf("Klinikler : 1-KBB, 2-Fizik Tedavi , 3-cocuk hastaliklari, 4-noroloji, 5-
             
         } else if (cevap == 'H' || cevap == 'h') {
             char cevap1;
-            printf("RANDEVUSUZ SEKİLDE HASTA KAYDİNİZ YAPILSİN Mİ ? SİRA NUMARASİ VERİLECEKTİR. (E/H): ");
+            printf("RANDEVUSUZ SEKÄ°LDE HASTA KAYDÄ°NÄ°Z YAPILSÄ°N MÄ° ? SÄ°RA NUMARASÄ° VERÄ°LECEKTÄ°R. (E/H): ");
             
             scanf(" %c", &cevap1);
             if(cevap1 == 'E' || cevap1 == 'e') {
 
-                printf("Klinikler : 1-KBB, 2-Fizik Tedavi , 3-cocuk hastaliklari, 4-noroloji, 5-dahiliye, 6-Jinekoloji , 7-Dis Hastalikları, 8- ortopedi, 9- Genel Cerrahi, 10- goz hastaliklari \n") ;
+                printf("Klinikler : 1-KBB, 2-Fizik Tedavi , 3-cocuk hastaliklari, 4-noroloji, 5-dahiliye, 6-Jinekoloji , 7-Dis HastaliklarÄ±, 8- ortopedi, 9- Genel Cerrahi, 10- goz hastaliklari \n") ;
                 printf("KLINIK NO : ");
                 scanf("%d", &h1.klinikNo);
                 FILE *ptr = fopen("doktor.dat", "r+b");
@@ -102,18 +102,18 @@ printf("Klinikler : 1-KBB, 2-Fizik Tedavi , 3-cocuk hastaliklari, 4-noroloji, 5-
                     }
                 }
                 fclose(ptr);
-                if(sonuc == 0) { //// eğer sonuç hala 0 ise (yani doktor bulunamadıysa)
+                if(sonuc == 0) { //// eÄŸer sonuÃ§ hala 0 ise (yani doktor bulunamadÄ±ysa)
                     printf("Bu bolumun doktoru yok. Bu klinik icin Doktor Kayit islemi Oldugu zaman kayit islemi gerceklesecektir. ilginiz icin Tesekkurler. !!!\n");
                 } else {
                     printf("DOKTOR NO : "); scanf("%d", &h1.doktorNo);
-                    h1.durum = 0; // hasta durumu 0 olarak atanır
+                    h1.durum = 0; // hasta durumu 0 olarak atanÄ±r
                     FILE *hPtr = fopen("hastarandevusuz1.dat", "a+b");
                     FILE *hPtr2 = fopen("yedek.dat", "wb");
                     fwrite(&h1, sizeof(struct hasta), 1, hPtr);
-                    printf("HASTA KAYDİNİZ GERCEKLESMİSTİR. GEÇMİS OLSUN! ");
-                     srand(time(NULL)); // rastgele sayı üretmek için time fonksiyonu kullanılır
-                int siraNo = rand() % 100 + 1; // 1 ile 100 arasında rastgele bir sayı üretir
-                printf("Sıra numaranız: %d\n", siraNo);
+                    printf("HASTA KAYDÄ°NÄ°Z GERCEKLESMÄ°STÄ°R. GEÃ‡MÄ°S OLSUN! ");
+                     srand(time(NULL)); // rastgele sayÄ± Ã¼retmek iÃ§in time fonksiyonu kullanÄ±lÄ±r
+                int siraNo = rand() % 100 + 1; // 1 ile 100 arasÄ±nda rastgele bir sayÄ± Ã¼retir
+                printf("SÄ±ra numaranÄ±z: %d\n", siraNo);
                                 
 
                     fclose(hPtr);
@@ -129,15 +129,15 @@ void randevuiptal() {
     struct hasta h1;
     struct doktor d1;
     int tc, sonuc = 0;
-    printf("RANDEVU ARAMA/İPTAL ETME! \n");
-    printf("Lutfen T.C kimlik numaranızı giriniz.      : ");scanf("%d", &tc);
-    FILE *ptr = fopen("hasta.dat", "r+b"); //// hastalar dosyası açılır (okuma ve yazma modunda)
-    FILE *ptr2 = fopen("yedekdosya1.dat", "w+b"); //// yedek dosyası açılır (yazma modunda)
+    printf("RANDEVU ARAMA/Ä°PTAL ETME! \n");
+    printf("Lutfen T.C kimlik numaranÄ±zÄ± giriniz.      : ");scanf("%d", &tc);
+    FILE *ptr = fopen("hasta.dat", "r+b"); //// hastalar dosyasÄ± aÃ§Ä±lÄ±r (okuma ve yazma modunda)
+    FILE *ptr2 = fopen("yedekdosya1.dat", "w+b"); //// yedek dosyasÄ± aÃ§Ä±lÄ±r (yazma modunda)
 
     while (fread(&h1, sizeof(struct hasta), 1, ptr) > 0) {
-        if (tc != h1.tc) //"tc" değişkeninin "h1.tc" değişkeninin değerine eşit olmadığını kontrol ediyor.
-            fwrite(&h1, sizeof(struct hasta), 1, ptr2); // hastanın bilgileri yedek dosyaya yazılır
-        else { // eğer hastanın TC kimlik numarası eşleşirse
+        if (tc != h1.tc) //"tc" deÄŸiÅŸkeninin "h1.tc" deÄŸiÅŸkeninin deÄŸerine eÅŸit olmadÄ±ÄŸÄ±nÄ± kontrol ediyor.
+            fwrite(&h1, sizeof(struct hasta), 1, ptr2); // hastanÄ±n bilgileri yedek dosyaya yazÄ±lÄ±r
+        else { // eÄŸer hastanÄ±n TC kimlik numarasÄ± eÅŸleÅŸirse
             sonuc = 1;
             break;
         }
@@ -153,18 +153,18 @@ void randevuiptal() {
         printf(" AD                : %s \n", h1.ad);
         printf(" SOYAD             : %s \n", h1.soyad);
         printf(" TELEFON NUMARASI  : %d \n", h1.tel);
-        printf(" RANDEVU TARİHİ  : %s \n", h1.rtarih);
-        printf(" RANDEVU SAATİ  : %s \n", h1.rsaat);
+        printf(" RANDEVU TARÄ°HÄ°  : %s \n", h1.rtarih);
+        printf(" RANDEVU SAATÄ°  : %s \n", h1.rsaat);
          printf("DOKTOR NO :  %d \n", h1.doktorNo);
         char cevap1;
-        printf("RANDEVUNUZ İPTAL EDİLSİN Mİ ? (E/H): ");
+        printf("RANDEVUNUZ Ä°PTAL EDÄ°LSÄ°N MÄ° ? (E/H): ");
         scanf(" %c", &cevap1);
 
         if (cevap1 == 'E' || cevap1 == 'e') {
             ptr = fopen("hasta.dat", "r+b");
             ptr2 = fopen("yedekdosya1.dat", "w+b");
 
-            sonuc = 0; // sonuc değişkenini sıfırla
+            sonuc = 0; // sonuc deÄŸiÅŸkenini sÄ±fÄ±rla
 
             while (fread(&h1, sizeof(struct hasta), 1, ptr) > 0) {
                 if (tc != h1.tc)
@@ -179,11 +179,11 @@ void randevuiptal() {
             fclose(ptr);
             fclose(ptr2);
 
-            if (sonuc == 0) { //// eğer sonuç hala 0 ise (yani hastanın kaydı bulunamadıysa)
+            if (sonuc == 0) { //// eÄŸer sonuÃ§ hala 0 ise (yani hastanÄ±n kaydÄ± bulunamadÄ±ysa)
                 printf("%d T.C Nolu Hasta Kaydi  bulunamadi \n", tc);
             } else {
                 remove("hasta.dat");
-                rename("yedekdosya1.dat", "hasta.dat"); //// yedekdosya1.dat dosyası hasta.dat olarak yeniden adlandırılıyor
+                rename("yedekdosya1.dat", "hasta.dat"); //// yedekdosya1.dat dosyasÄ± hasta.dat olarak yeniden adlandÄ±rÄ±lÄ±yor
                 printf("Randevunuz iptal edildi \n");
             }
         }
@@ -206,7 +206,7 @@ void randevuiptal() {
 		printf("PAROLA   : ") ; scanf(" %[^\n]s",  d1.sifre ) ;
 	
 		system("cls")  ;
-		printf("Klinikler : 1-KBB, 2-Fizik Tedavi , 3-cocuk hastaliklari, 4-noroloji, 5-dahiliye, 6-Jinekoloji , 7-Dis Hastalikları, 8- ortopedi, 9- Genel Cerrahi, 10- goz hastaliklari \n") ;
+		printf("Klinikler : 1-KBB, 2-Fizik Tedavi , 3-cocuk hastaliklari, 4-noroloji, 5-dahiliye, 6-Jinekoloji , 7-Dis HastaliklarÄ±, 8- ortopedi, 9- Genel Cerrahi, 10- goz hastaliklari \n") ;
 		printf("KLINIK NO : ") ;  scanf("%d", &d1.klinikNo ) ;
 		printf("DOKTOR NO : ") ;  scanf("%d", &d1.doktorNo ) ;
 	
@@ -231,14 +231,14 @@ void randevuiptal() {
     dosyaAdi[5] = 't';
     dosyaAdi[6] = '\0';
 
-    FILE* mPtr = fopen(dosyaAdi, "a"); //ekleme modunda açılıyor.
-    if (mPtr == NULL) { //// Dosya açılamazsa hata mesajı verilir ve fonksiyondan çıkılır.
+    FILE* mPtr = fopen(dosyaAdi, "a"); //ekleme modunda aÃ§Ä±lÄ±yor.
+    if (mPtr == NULL) { //// Dosya aÃ§Ä±lamazsa hata mesajÄ± verilir ve fonksiyondan Ã§Ä±kÄ±lÄ±r.
         printf("Dosya acilamadi!\n");
         return;
     }
 
     printf("\nBekleyen Hastalar\n\n");
-    FILE* ptr = fopen("hasta.dat", "r+b"); // "hasta.dat" dosyası açılıyor ve okuma-yazma modunda açılıyor.
+    FILE* ptr = fopen("hasta.dat", "r+b"); // "hasta.dat" dosyasÄ± aÃ§Ä±lÄ±yor ve okuma-yazma modunda aÃ§Ä±lÄ±yor.
        
     if (ptr == NULL) {
         printf("Dosya acilamadi!\n");
@@ -246,32 +246,32 @@ void randevuiptal() {
         return;
     }
 
-    while (fread(&h1, sizeof(struct hasta), 1, ptr) > 0) { // Dosyadaki her hasta için kontrol yapılır.
-        if (d1.doktorNo == h1.doktorNo && h1.durum == 0) { // Dosyadan bir hasta okunur ve işlem yapılır
-            sonuc = 1; // En az bir hasta varsa sonuc değişkeni 1 olur.
+    while (fread(&h1, sizeof(struct hasta), 1, ptr) > 0) { // Dosyadaki her hasta iÃ§in kontrol yapÄ±lÄ±r.
+        if (d1.doktorNo == h1.doktorNo && h1.durum == 0) { // Dosyadan bir hasta okunur ve iÅŸlem yapÄ±lÄ±r
+            sonuc = 1; // En az bir hasta varsa sonuc deÄŸiÅŸkeni 1 olur.
             printf("Hasta bilgileri:\n");
             printf("Ad: %s\nSoyad: %s\nTC: %d\nRandevu tarihi: %s\nRandevu saati: %s\n", h1.ad, h1.soyad, h1.tc, h1.rtarih, h1.rsaat);
             printf("%s hastasinin muayene sonucu:", h1.ad);
-            scanf(" %[^\n]s", aciklama); // Muayene sonucu kullanıcı tarafından girilir.
-            h1.durum = 1; // Hasta durumu güncellenir.
+            scanf(" %[^\n]s", aciklama); // Muayene sonucu kullanÄ±cÄ± tarafÄ±ndan girilir.
+            h1.durum = 1; // Hasta durumu gÃ¼ncellenir.
             fprintf(mPtr, "%d\t%s\t%s\t%s\n", h1.tc, h1.ad, h1.soyad, aciklama);
-            fseek(ptr, (sayac)*sizeof(struct hasta), SEEK_SET); // Dosya konumu ayarlanır.
-            fwrite(&h1, sizeof(struct hasta), 1, ptr); // Hasta bilgileri dosyaya yazdırılır.
+            fseek(ptr, (sayac)*sizeof(struct hasta), SEEK_SET); // Dosya konumu ayarlanÄ±r.
+            fwrite(&h1, sizeof(struct hasta), 1, ptr); // Hasta bilgileri dosyaya yazdÄ±rÄ±lÄ±r.
             break;
         }
-        sayac++; // Dosya konumunu güncelle.
+        sayac++; // Dosya konumunu gÃ¼ncelle.
     }
 
     fclose(ptr);
     fclose(mPtr);
 
-    if (sonuc == 0) { // En az bir hasta yoksa, "Bekleyen hastaniz kalmadi!" mesajı yazdırılır.
+    if (sonuc == 0) { // En az bir hasta yoksa, "Bekleyen hastaniz kalmadi!" mesajÄ± yazdÄ±rÄ±lÄ±r.
  
-    } else {  // En az bir hasta varsa, muayeneEt fonksiyonu tekrar çağrılır.
+    } else {  // En az bir hasta varsa, muayeneEt fonksiyonu tekrar Ã§aÄŸrÄ±lÄ±r.
         muayeneEt(d1);
     }
 
-    sonuc = 0; // Değişkenler sıfırlanır.
+    sonuc = 0; // DeÄŸiÅŸkenler sÄ±fÄ±rlanÄ±r.
     sayac = 0;
     FILE* ptr2 = fopen("hastarandevusuz1.dat", "r+b");
         printf("RANDEVUSUZ ");
@@ -280,26 +280,26 @@ void randevuiptal() {
         return;
     }
 
-    while (fread(&h1, sizeof(struct hasta), 1, ptr2) > 0) { // Dosyadaki her hasta için kontrol yapılır.
-        if (d1.doktorNo == h1.doktorNo && h1.durum == 0) { // Doktor numarası ve durumu kontrol edilir.
-            sonuc = 1; // En az bir hasta varsa sonuc değişkeni 1 olur.
+    while (fread(&h1, sizeof(struct hasta), 1, ptr2) > 0) { // Dosyadaki her hasta iÃ§in kontrol yapÄ±lÄ±r.
+        if (d1.doktorNo == h1.doktorNo && h1.durum == 0) { // Doktor numarasÄ± ve durumu kontrol edilir.
+            sonuc = 1; // En az bir hasta varsa sonuc deÄŸiÅŸkeni 1 olur.
             printf("Hasta bilgileri:\n");
             printf("Ad: %s\nSoyad: %s\nTC: %d\n", h1.ad, h1.soyad, h1.tc);
             printf("%s hastasinin muayene sonucu:", h1.ad);
-            scanf(" %[^\n]s", aciklama); // Muayene sonucu kullanıcı tarafından girilir.
-            h1.durum = 1; // Hasta durumu güncellenir.
+            scanf(" %[^\n]s", aciklama); // Muayene sonucu kullanÄ±cÄ± tarafÄ±ndan girilir.
+            h1.durum = 1; // Hasta durumu gÃ¼ncellenir.
             fprintf(mPtr, "%d\t%s\t%s\t%s\n", h1.tc, h1.ad, h1.soyad, aciklama);
-            fseek(ptr2, (sayac)*sizeof(struct hasta), SEEK_SET); // Dosya konumu ayarlanır.
-            fwrite(&h1, sizeof(struct hasta), 1, ptr2); // Hasta bilgileri dosyaya yazdırılır.
+            fseek(ptr2, (sayac)*sizeof(struct hasta), SEEK_SET); // Dosya konumu ayarlanÄ±r.
+            fwrite(&h1, sizeof(struct hasta), 1, ptr2); // Hasta bilgileri dosyaya yazdÄ±rÄ±lÄ±r.
             break;
         }
-        sayac++; // Dosya konumunu güncelle.
+        sayac++; // Dosya konumunu gÃ¼ncelle.
     }
 
     fclose(ptr2);
     fclose(mPtr);
 
-    if (sonuc == 0) { // En az bir hasta yoksa, "Bekleyen hastaniz kalmadi!" mesajı yazdırılır.
+    if (sonuc == 0) { // En az bir hasta yoksa, "Bekleyen hastaniz kalmadi!" mesajÄ± yazdÄ±rÄ±lÄ±r.
         printf("Bekleyen hastaniz kalmadi! \n");
     } else {
         muayeneEt(d1);
@@ -316,16 +316,16 @@ void bekleyenHastalar(struct doktor d1) {
 
     FILE* ptr = fopen("hasta.dat", "rb");
       
-    if (ptr == NULL) { // Dosya açılamazsa hata mesajı yazdırılır ve fonksiyondan çıkılır.
+    if (ptr == NULL) { // Dosya aÃ§Ä±lamazsa hata mesajÄ± yazdÄ±rÄ±lÄ±r ve fonksiyondan Ã§Ä±kÄ±lÄ±r.
         printf("Dosya acilamadi!\n");
         return;
     }
 
     printf("TC\tAd\tSoyad\tRandevu tarihi\tRandevu saati\n");
 
-    while (fread(&h1, sizeof(struct hasta), 1, ptr) > 0) { // Dosyadaki her hasta için kontrol yapılır.
-        if (d1.doktorNo == h1.doktorNo && h1.durum == 0) { // Doktor numarası ve durumu kontrol edilir.
-            sonuc = 1; // En az bir hasta varsa sonuc değişkeni 1 olur.
+    while (fread(&h1, sizeof(struct hasta), 1, ptr) > 0) { // Dosyadaki her hasta iÃ§in kontrol yapÄ±lÄ±r.
+        if (d1.doktorNo == h1.doktorNo && h1.durum == 0) { // Doktor numarasÄ± ve durumu kontrol edilir.
+            sonuc = 1; // En az bir hasta varsa sonuc deÄŸiÅŸkeni 1 olur.
             printf("%d\t%s\t%s\t%s\t%s\n", h1.tc, h1.ad, h1.soyad, h1.rtarih, h1.rsaat);
         }
     }
@@ -334,7 +334,7 @@ void bekleyenHastalar(struct doktor d1) {
 
     FILE* hPtr = fopen("hastarandevusuz1.dat", "rb");
 
-    if (hPtr == NULL) {  // Dosya açılamazsa hata mesajı yazdırılır ve fonksiyondan çıkılır
+    if (hPtr == NULL) {  // Dosya aÃ§Ä±lamazsa hata mesajÄ± yazdÄ±rÄ±lÄ±r ve fonksiyondan Ã§Ä±kÄ±lÄ±r
         printf("Dosya acilamadi!\n");
         return;
     }
@@ -351,7 +351,7 @@ void bekleyenHastalar(struct doktor d1) {
     if (sonuc == 0) {
         printf("Bekleyen hastaniz yok!\n");
     } else {
-        muayeneEt(d1); // Bekleyen hasta varsa muayeneEt() fonksiyonu çağrılır.
+        muayeneEt(d1); // Bekleyen hasta varsa muayeneEt() fonksiyonu Ã§aÄŸrÄ±lÄ±r.
     }
 }
 	void doktorGiris()
@@ -359,18 +359,18 @@ void bekleyenHastalar(struct doktor d1) {
 	
 	system("cls") ;
 	setlocale(LC_ALL, "Turkish");
-	struct doktor d1; //d1 adında struct doktor tipinde bir veri yapısı oluşturur.
+	struct doktor d1; //d1 adÄ±nda struct doktor tipinde bir veri yapÄ±sÄ± oluÅŸturur.
 	
-	char tc[11], sifre[20];  //tc ve sifre adında karakter dizileri oluşturur ve sonuc değişkenini sıfır olarak ayarlar.
+	char tc[11], sifre[20];  //tc ve sifre adÄ±nda karakter dizileri oluÅŸturur ve sonuc deÄŸiÅŸkenini sÄ±fÄ±r olarak ayarlar.
 	int sonuc=0;
 	
 	printf("Doktor giris ekrani \n") ;
 	printf("TC : ") ; scanf(" %[^\n]s", tc ) ;
 	printf("Parola : ") ; scanf(" %[^\n]s", sifre ) ;
 	
-	FILE *ptr= fopen("doktor.dat", "r+b") ; //doktor.dat dosyasını okuma ve yazma modunda açar.
+	FILE *ptr= fopen("doktor.dat", "r+b") ; //doktor.dat dosyasÄ±nÄ± okuma ve yazma modunda aÃ§ar.
 
-	while( fread ( &d1, sizeof(struct doktor), 1, ptr ) >0 ) //ptr dosya işaretçisinden struct doktor boyutunda veri okur ve d1 yapısına yazar
+	while( fread ( &d1, sizeof(struct doktor), 1, ptr ) >0 ) //ptr dosya iÅŸaretÃ§isinden struct doktor boyutunda veri okur ve d1 yapÄ±sÄ±na yazar
 	{
 	if ( (strcmp(tc, d1.tc) == 0) && (strcmp(sifre, d1.sifre) == 0) )
 	
@@ -403,15 +403,15 @@ void bekleyenHastalar(struct doktor d1) {
 		printf("Parola hatirlatma ekrani \n") ;
 		char tc[20], dtarih[20] ;
 		printf("TC       : ") ; scanf(" %[^\n]s",  tc ) ;
-		printf("DOĞUM TARİHİNİZ      : ") ; scanf(" %[^\n]s", dtarih ) ;
+		printf("DOÄUM TARÄ°HÄ°NÄ°Z      : ") ; scanf(" %[^\n]s", dtarih ) ;
 		int sonuc= 0;
 	
 		FILE *ptr  = fopen( "doktor.dat", "r+b" ) ;
 	
 	
-		while( fread ( &d1, sizeof(doktor), 1, ptr )  !=NULL  ) //ptr dosya işaretçisinden struct doktor boyutunda veri okur ve d1 yapısına yazar
+		while (fread(&d1, sizeof(d1), 1, ptr) == 1)  //ptr dosya iÅŸaretÃ§isinden struct doktor boyutunda veri okur ve d1 yapÄ±sÄ±na yazar
 		{
-			if( strcmp( tc ,d1.tc )==0 && strcmp( dtarih, d1.dtarih  ) ==0  ) //Eğer tc ve dtarih değerleri d1 yapısındaki tc ve dtarih alanları ile eşleşirse, sonuc değişkeninin değeri bir yapılır ve while döngüsünden çıkılır.
+			if( strcmp( tc ,d1.tc )==0 && strcmp( dtarih, d1.dtarih  ) ==0  ) //EÄŸer tc ve dtarih deÄŸerleri d1 yapÄ±sÄ±ndaki tc ve dtarih alanlarÄ± ile eÅŸleÅŸirse, sonuc deÄŸiÅŸkeninin deÄŸeri bir yapÄ±lÄ±r ve while dÃ¶ngÃ¼sÃ¼nden Ã§Ä±kÄ±lÄ±r.
 			{
 				sonuc=1;
 				break;
@@ -434,17 +434,17 @@ void bekleyenHastalar(struct doktor d1) {
 	{
 		system("cls")  ;
 			setlocale(LC_ALL, "Turkish");
-		struct doktor d1; //d1 adında struct doktor tipinde bir veri yapısı oluşturur.
+		struct doktor d1; //d1 adÄ±nda struct doktor tipinde bir veri yapÄ±sÄ± oluÅŸturur.
 
-		int adet=0; //adet değişkenini sıfır olarak ayarlar 
+		int adet=0; //adet deÄŸiÅŸkenini sÄ±fÄ±r olarak ayarlar 
 	
-		printf("%s\t%s\t%s\t%s\t%s\t%s\n", "kNo", "dNo", "T.C", "AD", "SOYAD","DOGUM TARİHİ" ) ; //kNo, dNo, T.C, AD ve SOYAD sütun başlıklarıyla birlikte bir tablo başlığı ekrana yazdırır.
+		printf("%s\t%s\t%s\t%s\t%s\t%s\n", "kNo", "dNo", "T.C", "AD", "SOYAD","DOGUM TARÄ°HÄ°" ) ; //kNo, dNo, T.C, AD ve SOYAD sÃ¼tun baÅŸlÄ±klarÄ±yla birlikte bir tablo baÅŸlÄ±ÄŸÄ± ekrana yazdÄ±rÄ±r.
 	
 		FILE *ptr= fopen("doktor.dat", "r+b") ;
-		while( fread( &d1, sizeof(struct doktor), 1, ptr ) >0  ) //d1 yapısına dosyadan struct doktor boyutunda veri okur. Dosyada okunacak veri kalmadığı sürece while döngüsü devam eder.
+		while( fread( &d1, sizeof(struct doktor), 1, ptr ) >0  ) //d1 yapÄ±sÄ±na dosyadan struct doktor boyutunda veri okur. Dosyada okunacak veri kalmadÄ±ÄŸÄ± sÃ¼rece while dÃ¶ngÃ¼sÃ¼ devam eder.
 		{
-			adet++; //adet değişkeninin değerini bir artırır
-			printf("%d\t%d\t%s\t%s\t%s\t%s\n", d1.klinikNo, d1.doktorNo, d1.tc, d1.ad, d1.soyad,d1.dtarih) ; //d1 yapısındaki klinikNo, doktorNo, tc, ad ve soyad alanları ekrana yazdırır.
+			adet++; //adet deÄŸiÅŸkeninin deÄŸerini bir artÄ±rÄ±r
+			printf("%d\t%d\t%s\t%s\t%s\t%s\n", d1.klinikNo, d1.doktorNo, d1.tc, d1.ad, d1.soyad,d1.dtarih) ; //d1 yapÄ±sÄ±ndaki klinikNo, doktorNo, tc, ad ve soyad alanlarÄ± ekrana yazdÄ±rÄ±r.
 		}
 	
 		fclose(ptr) ;
@@ -456,10 +456,10 @@ void hastalariListele()
     system("cls");
     struct hasta h1;
     int adet = 0;
-    printf("HASTALARİ LİSTELEME EKRANI ! \n");
+    printf("HASTALARÄ° LÄ°STELEME EKRANI ! \n");
     printf("%s\t%s\t%s\t%s\n", "TC", "AD", "SOYAD", "TEL");
 
-    FILE *ptr = fopen("hasta.dat", "rb"); // hasta.dat dosyasından hasta bilgilerini oku ve ekrana yazdır
+    FILE *ptr = fopen("hasta.dat", "rb"); // hasta.dat dosyasÄ±ndan hasta bilgilerini oku ve ekrana yazdÄ±r
     FILE *hPtr = fopen("hastarandevusuz1.dat", "rb");
 
     while (fread(&h1, sizeof(struct hasta), 1, ptr)) {
@@ -474,7 +474,7 @@ void hastalariListele()
 
     fclose(ptr);
     fclose(hPtr);
-    printf("Hasta Sayisi: %d\n", adet); // Toplam hasta sayısını ekrana yazdır
+    printf("Hasta Sayisi: %d\n", adet); // Toplam hasta sayÄ±sÄ±nÄ± ekrana yazdÄ±r
 }
 
 	void HastaKayitGuncelleme() {
@@ -488,22 +488,22 @@ void hastalariListele()
     char adres_yeni[100];
     int tc_yeni;
 
-    int sonuc=0, sayac=0; // Sonuç ve sayac değişkenlerini tanımlar.
-    printf("HASTALARI GÜNCELLEME EKRANI\n");
-    printf("Güncelleme yapmak istediğiniz hastanın T.C kimlik NOsu: ");
+    int sonuc=0, sayac=0; // SonuÃ§ ve sayac deÄŸiÅŸkenlerini tanÄ±mlar.
+    printf("HASTALARI GÃœNCELLEME EKRANI\n");
+    printf("GÃ¼ncelleme yapmak istediÄŸiniz hastanÄ±n T.C kimlik NOsu: ");
     scanf("%d", &tc_yeni);
 
-    FILE *ptr = fopen("hasta.dat", "r+b"); // Hasta dosyasını okuma ve yazma modunda açar.
+    FILE *ptr = fopen("hasta.dat", "r+b"); // Hasta dosyasÄ±nÄ± okuma ve yazma modunda aÃ§ar.
     FILE *hPtr = fopen("hastarandevusuz1.dat", "r+b");
     while (fread(&h1, sizeof(struct hasta), 1, ptr) > 0)
     {
-        if (tc_yeni == h1.tc) //// T.C kimlik numarası eşleşirse,
+        if (tc_yeni == h1.tc) //// T.C kimlik numarasÄ± eÅŸleÅŸirse,
         {
-            sonuc=1; // // Sonuc değişkenini 1 yapar.
-            printf("%d\t%s\t%s\t%d\n", h1.tc, h1.ad, h1.soyad, h1.tel); // Hasta bilgilerini ekrana yazdırır.
+            sonuc=1; // // Sonuc deÄŸiÅŸkenini 1 yapar.
+            printf("%d\t%s\t%s\t%d\n", h1.tc, h1.ad, h1.soyad, h1.tel); // Hasta bilgilerini ekrana yazdÄ±rÄ±r.
             break;
         }
-        sayac++; // Sayac değişkenini arttırır.
+        sayac++; // Sayac deÄŸiÅŸkenini arttÄ±rÄ±r.
     }
     while (fread(&h1, sizeof(struct hasta), 1, hPtr) > 0)
     {
@@ -516,12 +516,12 @@ void hastalariListele()
     }
     fclose(hPtr);
 
-    if (sonuc == 0) // Sonuç değişkeni hala 0 ise, kayıt yoktur
+    if (sonuc == 0) // SonuÃ§ deÄŸiÅŸkeni hala 0 ise, kayÄ±t yoktur
     {
         printf("%d TC NUMARALI KAYIT YOK!\n", tc_yeni);
         fclose(ptr);
     }
-    else // Kayıt varsa,
+    else // KayÄ±t varsa,
     {
         printf("TC: ");
         scanf("%d", &tc_yeni);
@@ -530,39 +530,39 @@ void hastalariListele()
         printf("SOYAD: ");
         scanf(" %[^\n]s", soyad_yeni);
 
-        while (1) { // Geçerli bir GSM numarası girilene kadar döngü devam eder.
+        while (1) { // GeÃ§erli bir GSM numarasÄ± girilene kadar dÃ¶ngÃ¼ devam eder.
             printf("GSM: ");
             int ret = scanf("%d", &tel_yeni);
-            if (ret == 1) {  // Geçerli bir girdi varsa, döngü sona ere
+            if (ret == 1) {  // GeÃ§erli bir girdi varsa, dÃ¶ngÃ¼ sona ere
                 break;
             }
-            printf("Geçersiz giris. Lütfen geçerli  sayi degeri giriniz.\n");
+            printf("GeÃ§ersiz giris. LÃ¼tfen geÃ§erli  sayi degeri giriniz.\n");
                 while (getchar() != '\n');
         }
 
         rewind(ptr); //
-                 // Yeni hasta bilgileri, hasta yapısına aktarılır.
+                 // Yeni hasta bilgileri, hasta yapÄ±sÄ±na aktarÄ±lÄ±r.
 
         h1.tc = tc_yeni;
         strcpy(h1.ad, ad_yeni);
         strcpy(h1.soyad, soyad_yeni);
         h1.tel = tel_yeni;
 
-        fseek(ptr, (sayac - 1) * sizeof(struct hasta), 0); // Dosya konum göstergesini belirtilen kayda getirir.
+        fseek(ptr, (sayac - 1) * sizeof(struct hasta), 0); // Dosya konum gÃ¶stergesini belirtilen kayda getirir.
         fwrite(&h1, sizeof(struct hasta), 1, ptr); // Dosyaya yeni verileri yazar.
         fclose(ptr);
-        printf("Güncelleme işlemi başarıyla tamamlandı.\n");
+        printf("GÃ¼ncelleme iÅŸlemi baÅŸarÄ±yla tamamlandÄ±.\n");
     }
 
-    printf("0- Ana menüye dön\n");
-    printf("Seçiminiz: ");
+    printf("0- Ana menÃ¼ye dÃ¶n\n");
+    printf("SeÃ§iminiz: ");
     scanf("%d", &secim);
     switch (secim)
     {
         case 0:
             break;
         default:
-            printf("Hatalı seçim yaptınız, ana menüye yönlendiriliyorsunuz.\n");
+            printf("HatalÄ± seÃ§im yaptÄ±nÄ±z, ana menÃ¼ye yÃ¶nlendiriliyorsunuz.\n");
             break;
     }
 }
@@ -572,25 +572,25 @@ void Kayitsilme()
     system("cls");
     int secim;
     struct hasta h1;
-    int tc, sonuc = 0; // tc numarası ve sonuç değişkenleri tanımlanır
-    printf("KAYIT SİLME EKRANI !\n");
-    printf("SİLMEK İSTEDİGINIZ VATANDASIN T.C KIMLIK NUMARASI: ");
+    int tc, sonuc = 0; // tc numarasÄ± ve sonuÃ§ deÄŸiÅŸkenleri tanÄ±mlanÄ±r
+    printf("KAYIT SÄ°LME EKRANI !\n");
+    printf("SÄ°LMEK Ä°STEDÄ°GINIZ VATANDASIN T.C KIMLIK NUMARASI: ");
     scanf("%d", &tc);
     FILE *ptr = fopen("hasta.dat", "r+b");
     FILE *hPtr = fopen("hastarandevusuz1.dat", "rb");
     FILE *ptr2 = fopen("yedekdosya.dat", "w+b");
-    while (fread(&h1, sizeof(struct hasta), 1, ptr) > 0) // hasta.dat dosyasındaki tüm kayıtlar okunur
+    while (fread(&h1, sizeof(struct hasta), 1, ptr) > 0) // hasta.dat dosyasÄ±ndaki tÃ¼m kayÄ±tlar okunur
     {
-        if (tc != h1.tc) //"tc" değişkeninin "h1.tc" değişkeninin değerine eşit olmadığını kontrol ediyor.
+        if (tc != h1.tc) //"tc" deÄŸiÅŸkeninin "h1.tc" deÄŸiÅŸkeninin deÄŸerine eÅŸit olmadÄ±ÄŸÄ±nÄ± kontrol ediyor.
         {
-            fwrite(&h1, sizeof(struct hasta), 1, ptr2); // h1 yapısı yedekdosya.dat dosyasına yazılır
+            fwrite(&h1, sizeof(struct hasta), 1, ptr2); // h1 yapÄ±sÄ± yedekdosya.dat dosyasÄ±na yazÄ±lÄ±r
         }
         else
         {
-            sonuc = 1; // eğer aranan tc numarası h1.tc numarasına eşitse sonuc değişkeni 1 olur
+            sonuc = 1; // eÄŸer aranan tc numarasÄ± h1.tc numarasÄ±na eÅŸitse sonuc deÄŸiÅŸkeni 1 olur
         }
     }
-    while (fread(&h1, sizeof(struct hasta), 1, hPtr) > 0) // hastarandevusuz1.dat dosyasındaki tüm kayıtlar okunur
+    while (fread(&h1, sizeof(struct hasta), 1, hPtr) > 0) // hastarandevusuz1.dat dosyasÄ±ndaki tÃ¼m kayÄ±tlar okunur
     {
         if (tc != h1.tc)
         {
@@ -598,19 +598,19 @@ void Kayitsilme()
         }
         else
         {
-            sonuc = 1; // eğer aranan tc numarası h1.tc numarasına eşitse sonuc değişkeni 1 olur
+            sonuc = 1; // eÄŸer aranan tc numarasÄ± h1.tc numarasÄ±na eÅŸitse sonuc deÄŸiÅŸkeni 1 olur
         }
     }
     fclose(ptr);
     fclose(hPtr);
     fclose(ptr2);
-    if (sonuc == 0) // eğer sonuc değişkeni hala 0 ise
+    if (sonuc == 0) // eÄŸer sonuc deÄŸiÅŸkeni hala 0 ise
     {
         printf("%d T.C Nolu Hasta Kaydi bulunamadi \n", tc);
     }
     else
     {
-        remove("hasta.dat"); // hasta.dat dosyası silinir
+        remove("hasta.dat"); // hasta.dat dosyasÄ± silinir
         remove("hastarandevusuz1.dat");
         rename("yedekdosya.dat", "hasta.dat");
         printf("Hasta Kaydi Silindi\n");
@@ -620,7 +620,7 @@ void Kayitsilme()
     scanf("%d", &secim);
     switch (secim)
     {
-    case 0:  // eğer seçim 0 ise
+    case 0:  // eÄŸer seÃ§im 0 ise
         break;
     default:
         printf("Hatali secim yaptiniz, ana menuye yonlendiriliyorsunuz\n");
@@ -631,7 +631,7 @@ void Kayitsilme()
     system("cls");
     
     struct hasta h1;
-    int tc, sonuc = 0; // tc numarası ve sonuç değişkenleri tanımlanır
+    int tc, sonuc = 0; // tc numarasÄ± ve sonuÃ§ deÄŸiÅŸkenleri tanÄ±mlanÄ±r
     printf("HASTA KAYIT ARAMA EKRANI ! \n");
     printf("ARAMAK ISTEDIGINIZ VATANDASIN T.C KIMLIK NUMARASI: ");
     scanf("%d", &tc);
@@ -639,20 +639,20 @@ void Kayitsilme()
     FILE *ptr = fopen("hasta.dat", "rb");
     FILE *hPtr = fopen("hastarandevusuz1.dat", "rb");
     
-    while (fread(&h1, sizeof(struct hasta), 1, ptr) > 0) // hasta.dat dosyasındaki tüm kayıtlar okunur
+    while (fread(&h1, sizeof(struct hasta), 1, ptr) > 0) // hasta.dat dosyasÄ±ndaki tÃ¼m kayÄ±tlar okunur
     {
-        if (tc == h1.tc) // eğer aranan tc numarası h1.tc numarasına eşitse
+        if (tc == h1.tc) // eÄŸer aranan tc numarasÄ± h1.tc numarasÄ±na eÅŸitse
         {
-            sonuc = 1; // sonuc değişkeni 1 olur
+            sonuc = 1; // sonuc deÄŸiÅŸkeni 1 olur
             break;
         }
     }
     
-    if (sonuc == 0) // eğer sonuc değişkeni hala 0 ise
+    if (sonuc == 0) // eÄŸer sonuc deÄŸiÅŸkeni hala 0 ise
     {
-        while (fread(&h1, sizeof(struct hasta), 1, hPtr) > 0) // hastarandevusuz1.dat dosyasındaki tüm kayıtlar okunur
+        while (fread(&h1, sizeof(struct hasta), 1, hPtr) > 0) // hastarandevusuz1.dat dosyasÄ±ndaki tÃ¼m kayÄ±tlar okunur
         {
-            if (tc == h1.tc) // eğer aranan tc numarası h1.tc numarasına eşitse
+            if (tc == h1.tc) // eÄŸer aranan tc numarasÄ± h1.tc numarasÄ±na eÅŸitse
             {
                 sonuc = 1;
                 break;
@@ -660,7 +660,7 @@ void Kayitsilme()
         }
     }
     
-    if (sonuc == 0) // eğer sonuc değişkeni hala 0 ise
+    if (sonuc == 0) // eÄŸer sonuc deÄŸiÅŸkeni hala 0 ise
     {
         printf("%d T.C Nolu Hasta Kaydi bulunamadi \n", tc);
     }
@@ -683,8 +683,8 @@ void Kayitsilme()
 		printf("Hasta giris ekrani \n") ;
 	
 		int secim;
-		printf("1- RANDEVU AL /HASTA KAYİT \n") ;
-		printf("2- RANDEVULARIM / RANDEVU İPTAL ET! \n");
+		printf("1- RANDEVU AL /HASTA KAYÄ°T \n") ;
+		printf("2- RANDEVULARIM / RANDEVU Ä°PTAL ET! \n");
 	;
 	;
 		printf("0- Ana menuye don \n") ;
@@ -726,7 +726,7 @@ void Kayitsilme()
 	void sekreterGiris()
 	{
 		system("cls") ;
-		printf("  SEKRETER GİRİS EKRANI\n\n") ;
+		printf("  SEKRETER GÄ°RÄ°S EKRANI\n\n") ;
 		int secim;
 		printf("1- HASTA  KAYIT \n") ;
 		printf("2- DOKTOR  KAYIT \n") ;
@@ -742,7 +742,7 @@ void Kayitsilme()
 	
 		switch(secim )
 		{
-			case 1: hastaKayit(); break; // Hasta kaydı yapmak için hastaKayit() fonksiyonunu çağırır.
+			case 1: hastaKayit(); break; // Hasta kaydÄ± yapmak iÃ§in hastaKayit() fonksiyonunu Ã§aÄŸÄ±rÄ±r.
 			case 2: DoktoryeniKayit() ; break;
 			case 3: doktorlariListele(); break;
 		    case 4: hastalariListele(); break;
@@ -750,30 +750,30 @@ void Kayitsilme()
 		    case 6: HastaKayitGuncelleme(); break;
 		    case 7: Kayitsilme (); break;
 		 
-			case 0:  break; //Kullanıcının çıkış yapmak istediği durumda programı sonlandırır.
+			case 0:  break; //KullanÄ±cÄ±nÄ±n Ã§Ä±kÄ±ÅŸ yapmak istediÄŸi durumda programÄ± sonlandÄ±rÄ±r.
 			default : printf("hatali secim yaptiniz, ana menuye yonlendiriliyorsunuz \n") ;
 		}
 	}
 	
 	int menu() {
 	setlocale(LC_ALL, "Turkish");
-	int secim; //Kullanıcının seçtiği menü seçeneğini tutmak için bir değişken tanımlanır.
+	int secim; //KullanÄ±cÄ±nÄ±n seÃ§tiÄŸi menÃ¼ seÃ§eneÄŸini tutmak iÃ§in bir deÄŸiÅŸken tanÄ±mlanÄ±r.
 	
 	printf("\n\n HASTANE OTOMASYON PROGRAMI \n\n");
 	
-	printf("   1-  HASTA GİRİŞ \n");
-	printf("   2-  SEKRETER GİRİŞ \n");
-	printf("   3-  DOKTOR GİRİŞ \n");
+	printf("   1-  HASTA GÄ°RÄ°Å \n");
+	printf("   2-  SEKRETER GÄ°RÄ°Å \n");
+	printf("   3-  DOKTOR GÄ°RÄ°Å \n");
 	printf("   0- Programi Kapat \n");
 	printf("   Seciminiz :  ");
 	
-	while (scanf("%d", &secim) != 1 || (secim != 0 && secim != 1 && secim != 2 && secim != 3)) {  /* Kullanıcının geçerli bir seçim yapması için while döngüsü kullanılır.
-	                                                                                             scanf() fonksiyonuyla kullanıcının seçimi okunur ve geçerli bir seçim yapılıncaya kadar döngü devam eder. */
-	    printf("Hatalı secim! Lütfen geçerli bir seçim yapın (0-3 arasında bir sayı): ");
-	    while (getchar() != '\n'); //Yanlış girişlerin hafızadan temizlenmesi için kullanılır.
+	while (scanf("%d", &secim) != 1 || (secim != 0 && secim != 1 && secim != 2 && secim != 3)) {  /* KullanÄ±cÄ±nÄ±n geÃ§erli bir seÃ§im yapmasÄ± iÃ§in while dÃ¶ngÃ¼sÃ¼ kullanÄ±lÄ±r.
+	                                                                                             scanf() fonksiyonuyla kullanÄ±cÄ±nÄ±n seÃ§imi okunur ve geÃ§erli bir seÃ§im yapÄ±lÄ±ncaya kadar dÃ¶ngÃ¼ devam eder. */
+	    printf("HatalÄ± secim! LÃ¼tfen geÃ§erli bir seÃ§im yapÄ±n (0-3 arasÄ±nda bir sayÄ±): ");
+	    while (getchar() != '\n'); //YanlÄ±ÅŸ giriÅŸlerin hafÄ±zadan temizlenmesi iÃ§in kullanÄ±lÄ±r.
 	}
 	
-	return secim; //Kullanıcının seçtiği seçenek değeri döndürülür.
+	return secim; //KullanÄ±cÄ±nÄ±n seÃ§tiÄŸi seÃ§enek deÄŸeri dÃ¶ndÃ¼rÃ¼lÃ¼r.
 	}
 	
 	int main() {
@@ -783,10 +783,10 @@ system("color 70");
  
 
 
-	int secim = menu(); //kullanıcının seçim yapması için menu() fonksiyonu çağırılır ve seçim değeri secim değişkenine atanır.
+	int secim = menu(); //kullanÄ±cÄ±nÄ±n seÃ§im yapmasÄ± iÃ§in menu() fonksiyonu Ã§aÄŸÄ±rÄ±lÄ±r ve seÃ§im deÄŸeri secim deÄŸiÅŸkenine atanÄ±r.
 	
-	while (secim != 0) { // Kullanıcı çıkış yapana kadar seçim yapmasını sağlayan döngü başlatılır.
-	    switch (secim) { //secim değişkeninin değerine göre ilgili fonksiyonlar çağırılır.
+	while (secim != 0) { // KullanÄ±cÄ± Ã§Ä±kÄ±ÅŸ yapana kadar seÃ§im yapmasÄ±nÄ± saÄŸlayan dÃ¶ngÃ¼ baÅŸlatÄ±lÄ±r.
+	    switch (secim) { //secim deÄŸiÅŸkeninin deÄŸerine gÃ¶re ilgili fonksiyonlar Ã§aÄŸÄ±rÄ±lÄ±r.
 	        case 1:
 	            hastaGiris();
 	            break;
@@ -799,7 +799,7 @@ system("color 70");
 	
 	    }
 	
-	    secim = menu(); //Kullanıcının menüden seçim yapması için menu() fonksiyonu çağrılır ve seçim değeri secim değişkenine atanır.
+	    secim = menu(); //KullanÄ±cÄ±nÄ±n menÃ¼den seÃ§im yapmasÄ± iÃ§in menu() fonksiyonu Ã§aÄŸrÄ±lÄ±r ve seÃ§im deÄŸeri secim deÄŸiÅŸkenine atanÄ±r.
 	}
 	
 	return 0;
